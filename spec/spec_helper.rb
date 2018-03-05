@@ -37,6 +37,12 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  # before each config, we are going to stub the constant SmsTool for a FakeSMS.
+  # Essentially, we are asking the tests to check before running everything if there is a call to SmsTool, and if there is a call, we want the test to swap SmsTool with FakeSMS. If you see, we have a method called send_sms in our FakeSMS module, just like our SmsTool to mimic this functionality.
+  config.before(:each) do
+    stub_const('SmsTool', FakeSms)
+  end
+
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
