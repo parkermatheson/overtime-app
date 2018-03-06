@@ -27,3 +27,9 @@
 - x Refactor posts/_form for admin user with status
 - x Fix post_spec.rb:82 to use factories
 - x Fix post_spec.rb:52 to have correct user reference and not require update
+
+## TODOS:
+- Integrate validation for phone attr in User:
+-- No spaces or dashes
+-- all characters have to be a number
+-- exactly 10 characters
