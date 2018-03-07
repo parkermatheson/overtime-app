@@ -1,12 +1,6 @@
 class StaticController < ApplicationController
-  # before_filter :find_model
-
   def homepage
     @pending_approvals = Post.where(status: 'submitted')
+    @recent_audit_items = AuditLog.last(10)
   end
-
-  # private
-  # def find_model
-  #   @model = Model.find(params[:id]) if params[:id]
-  # end
 end
