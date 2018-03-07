@@ -2,7 +2,7 @@ class StaticController < ApplicationController
   # before_filter :find_model
 
   def homepage
-    
+    @pending_approvals = Post.where(status: 'submitted')
   end
 
   # private
